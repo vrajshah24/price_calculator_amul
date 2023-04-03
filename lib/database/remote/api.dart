@@ -3,7 +3,6 @@ import 'dart:developer' as logDev;
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-
 // import '../local/models/userModel.dart';
 
 // void uploadData(
@@ -59,13 +58,25 @@ import 'package:http/http.dart' as http;
 //   logDev.log(response.body);
 // }
 
-// getFreshProducts() async {
-//   var map = Map<String, dynamic>();
-//   map['type'] = '1';
-//   final response = await http.post(
-//     Uri.parse('http://psm.amul.in:1101/api/get_products'),
-//     body: map,
-//   );
-//   print(response.body.length);
-//   return json.decode(response.body);
-// }
+getFreshProducts() async {
+  var map = Map<String, dynamic>();
+  map['type'] = '1';
+  final response = await http.post(
+    Uri.parse('http://myUrl/api/getProducts'),
+    body: map,
+  );
+  print(response.body.length);
+  return json.decode(response.body);
+}
+
+login(String code, String password) async {
+  var map = Map<String, dynamic>();
+  map['code'] = code;
+  map['password'] = password;
+
+  final response = await http.post(
+    Uri.parse('http://myUrl/api/getProducts'),
+    body: map,
+  );
+  return json.decode(response.body);
+}
